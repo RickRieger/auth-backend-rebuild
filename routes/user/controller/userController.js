@@ -4,7 +4,7 @@ const User = require("../model/User");
 const jwt = require("jsonwebtoken");
 
 async function signup(req, res, next) {
-  
+
   const { username, email, password, firstName, lastName } = req.body;
 
   const { errorObj } = res.locals;
@@ -25,14 +25,15 @@ async function signup(req, res, next) {
       password: hashedPassword,
     });
 
-    let savedUser = await createdUser.save();
-    res.json({ message: "success"});
+    await createdUser.save();
+    res.json({ message: "success-user created"});
 
     //if mongoDB has an error, it jumps to the catch block.
   } catch (e) {
     
     console.log(e);
     console.log(e.message);
+
     // res.status(500).json({ message: "error", error: e });
 
     //this "next" passes the error to errorController.  Look in app.js,

@@ -1,3 +1,5 @@
+//This is needed to add to the Error class
+
 class ErrorMessageHandlerClass extends Error {
   constructor(message, statusCode) {
     super(message, statusCode);
