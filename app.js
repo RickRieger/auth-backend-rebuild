@@ -56,6 +56,7 @@ app.all("*", function (req, res, next) {
     )
   );
 });
+
 //Tells app to use errorController in the event of an error via the next(e) in userController error catch block. 
 app.use(errorController);
 //makes this file accessible to other files
